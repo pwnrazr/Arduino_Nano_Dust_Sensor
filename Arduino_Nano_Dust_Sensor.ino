@@ -10,6 +10,7 @@ static float Voc = 0.6;
 const float K = 0.5;
 // Number of last N raw voltage readings
 #define N 200
+#define i2c_ADDR 8
 
 union u_tag {
    float density; 
@@ -29,7 +30,7 @@ void printFValue(String text, float value, String units, bool isLast = false) {
 }
 
 void setup() {
-  Wire.begin(8); // join i2c bus (address optional for master)
+  Wire.begin(i2c_ADDR);
   // REQUIRED as ESP32 is not 5V tolerant, this will turn off pullup of SDA and SCL and we will 
   // rely on ESP32's pullup instead
   digitalWrite(SDA, LOW);
@@ -40,7 +41,6 @@ void setup() {
   Serial.begin(9600);
   GP2.init(sharpLEDPin, sharpVoPin, K, N);
   Serial.println("Initialized");
-  
 }
 
 void loop() {
