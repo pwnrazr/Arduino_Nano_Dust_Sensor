@@ -2,7 +2,7 @@
 #include <Wire.h>
 
 // Arduino pin numbers.
-const int sharpLEDPin = 5;   // Arduino digital pin D5 connect to sensor LED.
+const int sharpLEDPin = 10;   // Arduino digital pin D5 connect to sensor LED.
 const int sharpVoPin = A0;   // Arduino analog pin 0 connect to sensor Vo.
 // Set the typical output voltage in Volts when there is zero dust. 
 static float Voc = 0.6;
